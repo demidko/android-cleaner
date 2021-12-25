@@ -3,7 +3,7 @@
 Jadb-cleaner is a simple utility to clean up your Android. The main feature is the automatic backup of possibly useful
 files.
 
-### Download
+## Download
 
 * [macOS version]()
 * [Windows version]()
