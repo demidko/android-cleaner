@@ -3,17 +3,15 @@ repositories {
   maven("https://jitpack.io")
 }
 plugins {
-  kotlin("jvm") version "1.6.0"
+  kotlin("jvm") version "1.6.10"
   id("com.github.johnrengelman.shadow") version "7.1.0"
 }
 dependencies {
-  implementation("io.ktor:ktor-server-netty:1.6.5")
-  implementation("io.ktor:ktor-freemarker:1.6.5")
-  implementation("io.ktor:ktor-client-cio:1.6.5")
-  implementation("ch.qos.logback:logback-classic:1.2.7")
-  testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+  implementation("com.github.vidstige:jadb:v1.2.1")
+  implementation("ch.qos.logback:logback-classic:1.2.9")
+  testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
   testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.25")
-  testImplementation("io.mockk:mockk:1.12.0")
+  testImplementation("io.mockk:mockk:1.12.1")
 }
 tasks.compileKotlin {
   kotlinOptions.jvmTarget = "17"
@@ -31,6 +29,7 @@ tasks.jar {
   manifest.attributes("Main-Class" to "AppKt")
 }
 tasks.shadowJar {
+  archiveFileName.set("jadb-cleaner")
   minimize() // if build is unsuccessful, you can disable it
   // also, if build still unsuccessful, you can try to add mergeServiceFiles() call
 }

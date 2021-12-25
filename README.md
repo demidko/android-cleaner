@@ -1,34 +1,40 @@
-# Service
+# jadb-cleaner
 
-Kotlin microservice template produces self-executable jar application. For brevity, double-space
-formatting is used. [`Ktor`](https://ktor.io/) is included to mock Digital Ocean healthy checks.
+Jadb-cleaner is a simple utility to clean up your Android. The main feature is the automatic backup of possibly useful
+files.
+
+### Download
+
+* [macOS version]()
+* [Windows version]()
+* [Linux version]()
 
 ## Usage
 
-1. Make sure you are signed in to your GitHub account, then just
-   click [`here`](https://github.com/demidko/service/generate) to use template.
-2. `App.kt` file is entry point.
+1. Turn on [developer features](https://developer.android.com/studio/debug/dev-options) on your phone.
+2. Connect your phone to your computer via usb.
+3. Execute
+   ```shell
+   ./jadb-cleaner
+   ```
+4. Enjoy the result!
 
 ## Build with Java
 
-Execute `./gradlew clean build`. Your jar will be located at `./build/libs` with `-all.jar` postfix.
-Now you can run:
+### Build jar utility
+
+Execute `./gradlew clean build`. Your jar will be located at `./build/libs` with `-all.jar` postfix. Now you can run:
 
 ```shell
-java -jar service-all.jar
+java -jar jadb-cleaner-all.jar
 ```
+
+### Build native utility
 
 ## Or, build with Docker
 
-Execute `docker build . -t service`. Your image will be located at `docker images -a`. Now you can
-run:
+Execute `docker build . -t service`. Your image will be located at `docker images -a`. Now you can run:
 
 ```shell
-docker run -v `pwd`:`pwd` -w `pwd` -it --rm service
+docker run -v `pwd`:`pwd` -w `pwd` -it --rm jadb-cleaner
 ```
-
-## Deploy
-
-You can edit deploy configuration at file [deploy.template.yaml](.do/deploy.template.yaml).
-
-[![Deploy to DigitalOcean](https://www.deploytodo.com/do-btn-blue-ghost.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/YOUR/REPO/tree/main)
