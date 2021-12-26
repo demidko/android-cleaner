@@ -7,8 +7,8 @@ plugins {
   id("com.github.johnrengelman.shadow") version "7.1.0"
 }
 dependencies {
+  implementation("commons-cli:commons-cli:1.5.0")
   implementation("com.github.vidstige:jadb:v1.2.1")
-  implementation("ch.qos.logback:logback-classic:1.2.9")
   testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
   testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.25")
   testImplementation("io.mockk:mockk:1.12.1")

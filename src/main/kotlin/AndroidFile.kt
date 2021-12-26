@@ -23,18 +23,14 @@ class AndroidFile private constructor(private val device: JadbDevice, val name: 
     }
   }
 
-  fun filterNested(filter: AndroidFile.() -> Boolean): List<AndroidFile> {
-    return listNested().filter(filter)
-  }
-
   override fun toString(): String {
     return path
   }
 
   companion object {
-
     fun JadbDevice.listUserFiles(): List<AndroidFile> {
-      return list("/sdcard").map { AndroidFile(this, it.path, "/sdcard/${it.path}") }
+      val userFolder = AndroidFile(this, "sdcard", "/sdcard")
+      return userFolder.listNested()
     }
   }
 }
