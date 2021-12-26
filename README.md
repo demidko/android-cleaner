@@ -5,8 +5,9 @@ files.
 
 ## Download
 
+* [Windows version]()
 * [macOS version]()
-* [Java version]()
+* [Linux version]()
 
 ## Usage
 
