@@ -12,12 +12,17 @@ useful files.
 ## Usage
 
 1. Turn on [USB debugging](https://developer.android.com/studio/debug/dev-options) on your device.
-2. Connect your phone to your computer via usb.
+2. Connect your phone to your computer via USB.
 3. Execute command
    ```shell
    ./jadb-cleaner
    ```
-   Enjoy the result!
+
+Enjoy the result! You can also configure backup directories, see help:
+
+```shell
+./jadb-cleaner -h
+```
 
 ## Build
 
