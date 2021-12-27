@@ -25,16 +25,12 @@ If you don't trust the binary utility, you can compile it yourself from source. 
 need [GraalVM](https://www.graalvm.org/downloads/) installed.
 
 1. Build jar utility
-
-```shell
-./gradlew clean build
-```
-
+   ```shell
+   ./gradlew clean build
+    ```
 2. Prepare the native-image tool by following
    the [official tutorial](https://www.graalvm.org/reference-manual/native-image).
-
 3. Build native utility from jar
-
-```shell
-native-image -jar build/libs/jadb-cleaner
-```
+   ```shell
+   native-image -jar build/libs/jadb-cleaner
+   ```
