@@ -35,7 +35,6 @@ fun main(args: Array<String>) {
     val photosBackup = Backup(photosDestination)
     val musicDestination = arguments.getOptionValue("m", "Android Music")
     val musicBackup = Backup(musicDestination)*/
-
   } catch (e: ParseException) {
     HelpFormatter().printHelp(
       "jadb-cleaner",

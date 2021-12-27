@@ -14,7 +14,7 @@ useful files.
 [USB debugging](https://developer.android.com/studio/debug/dev-options) must be enabled on your device.
 
 1. Connect your phone to your computer via USB.
-2. Execute command:
+2. Execute command in shell:
    ```shell
    ./jadb-cleaner
    ```
