@@ -1,5 +1,8 @@
 import AndroidFile.Companion.sdcard
-import org.apache.commons.cli.*
+import org.apache.commons.cli.HelpFormatter
+import org.apache.commons.cli.Option
+import org.apache.commons.cli.Options
+import org.apache.commons.cli.ParseException
 import se.vidstige.jadb.JadbConnection
 
 fun main(args: Array<String>) {
@@ -13,20 +16,25 @@ fun main(args: Array<String>) {
       .build()
   )
   try {
-    val arguments = DefaultParser().parse(params, args)
+    val cacheDirectories = setOf(
+      Regex("/sdcard/Adnroid/data/.*/cache")
+    )
+    val sdcard = JadbConnection().anyDevice.sdcard
+    val cleanup = Modifier(cacheDirectories) {
+      println("""Delete "$this"""")
+      delete()
+    }
+    cleanup.walk(sdcard)
 
-    val cache = Regex("/sdcard/Adnroid/data/.*/cache")
+    //val arguments = DefaultParser().parse(params, args)
 
-    val documentDestination = arguments.getOptionValue("d", "Android Documents")
+    /*val documentDestination = arguments.getOptionValue("d", "Android Documents")
     // todo возможно каждый Backup здесь стоит заменить просто на File?
     val documentsBackup = Backup(documentDestination)
     val photosDestination = arguments.getOptionValue("p", "Android Photos")
     val photosBackup = Backup(photosDestination)
     val musicDestination = arguments.getOptionValue("m", "Android Music")
-    val musicBackup = Backup(musicDestination)
-    val adb = JadbConnection()
-    val sdcard = adb.anyDevice.sdcard
-
+    val musicBackup = Backup(musicDestination)*/
 
   } catch (e: ParseException) {
     HelpFormatter().printHelp(
