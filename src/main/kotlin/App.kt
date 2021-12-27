@@ -1,5 +1,6 @@
+import AndroidFile.Companion.sdcard
 import org.apache.commons.cli.*
-import java.io.File
+import se.vidstige.jadb.JadbConnection
 
 fun main(args: Array<String>) {
   val params = Options()
@@ -13,9 +14,19 @@ fun main(args: Array<String>) {
   )
   try {
     val arguments = DefaultParser().parse(params, args)
-    val documentsBackup = arguments.getOptionValue("d", "Android Documents")
-    val photosBackup = arguments.getOptionValue("p", "Android Photos")
-    val musicBackup = arguments.getOptionValue("m", "Android Music")
+
+    val cache = Regex("/sdcard/Adnroid/data/.*/cache")
+
+    val documentDestination = arguments.getOptionValue("d", "Android Documents")
+    // todo возможно каждый Backup здесь стоит заменить просто на File?
+    val documentsBackup = Backup(documentDestination)
+    val photosDestination = arguments.getOptionValue("p", "Android Photos")
+    val photosBackup = Backup(photosDestination)
+    val musicDestination = arguments.getOptionValue("m", "Android Music")
+    val musicBackup = Backup(musicDestination)
+    val adb = JadbConnection()
+    val sdcard = adb.anyDevice.sdcard
+
 
   } catch (e: ParseException) {
     HelpFormatter().printHelp(

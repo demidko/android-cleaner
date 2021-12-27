@@ -2,24 +2,24 @@ import se.vidstige.jadb.JadbDevice
 import se.vidstige.jadb.RemoteFile
 import java.io.File
 
-class AndroidFile private constructor(private val device: JadbDevice, val name: String, private val path: String) {
+class AndroidFile private constructor(private val device: JadbDevice, private val name: String, private val path: String) {
 
   fun delete() {
     device.execute("rm -rf", path)
   }
 
-  fun copyTo(file: File) {
-    device.pull(RemoteFile(path), file)
+  fun copyToDirectory(d: File) {
+    val source = RemoteFile(path)
+    val destination = File(d, name)
+    device.pull(source, destination)
   }
 
-  fun moveTo(file: File) {
-    copyTo(file)
-    delete()
-  }
-
-  fun listNested(): List<AndroidFile> {
-    return device.list(path).map { nested ->
-      AndroidFile(device, nested.path, "$path/${nested.path}")
+  fun nested(): List<AndroidFile> {
+    val files = device.list(path).filter { file ->
+      file.path != "." && file.path != ".."
+    }
+    return files.map { file ->
+      AndroidFile(device, file.path, "$path/${file.path}")
     }
   }
 
@@ -28,9 +28,6 @@ class AndroidFile private constructor(private val device: JadbDevice, val name: 
   }
 
   companion object {
-    fun JadbDevice.listUserFiles(): List<AndroidFile> {
-      val userFolder = AndroidFile(this, "sdcard", "/sdcard")
-      return userFolder.listNested()
-    }
+    val JadbDevice.sdcard get() = AndroidFile(this, "sdcard", "/sdcard")
   }
 }
