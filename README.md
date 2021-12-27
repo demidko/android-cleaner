@@ -14,21 +14,22 @@ useful files.
 [USB debugging](https://developer.android.com/studio/debug/dev-options) must be enabled on your device.
 
 1. Connect your phone to your computer via USB.
-2. Execute command and enjoy the result.
+2. Execute command:
    ```shell
    ./jadb-cleaner
    ```
+   Enjoy the result 🙂
 
 ## Build
 
 You need [GraalVM](https://www.graalvm.org/downloads/)
 and [native-image](https://www.graalvm.org/reference-manual/native-image) installed.
 
-1. Build jar
+1. Build jar:
    ```shell
    ./gradlew clean build
     ```
-2. Build utility.
+2. Build utility:
    ```shell
    ./native-image -jar build/libs/jadb-cleaner
    ```
