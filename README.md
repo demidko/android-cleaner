@@ -30,4 +30,5 @@ You need JDK installed.
 
 ## Todo
 
-Configure GitHub CI to auto-publish binary releases.
+Configure GitHub CI to auto-publish binary releases.  
+https://docs.github.com/en/actions/advanced-guides/storing-workflow-data-as-artifacts
