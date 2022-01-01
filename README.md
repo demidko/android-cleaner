@@ -27,3 +27,7 @@ You need JDK installed.
 ```shell
 ./gradlew clean build
 ```
+
+## Todo
+
+Configure GitHub CI to auto-publish binary releases.
