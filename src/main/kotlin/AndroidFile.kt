@@ -1,3 +1,4 @@
+import se.vidstige.jadb.JadbConnection
 import se.vidstige.jadb.JadbDevice
 import se.vidstige.jadb.RemoteFile
 import java.io.File
@@ -28,6 +29,9 @@ class AndroidFile private constructor(private val device: JadbDevice, private va
   }
 
   companion object {
-    val JadbDevice.sdcard get() = AndroidFile(this, "sdcard", "/sdcard")
+    fun findAndroidSdcard(): AndroidFile {
+      val device = JadbConnection().anyDevice
+      return AndroidFile(device, "sdcard", "/sdcard")
+    }
   }
 }
