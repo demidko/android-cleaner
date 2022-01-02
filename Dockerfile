@@ -1,5 +1,5 @@
 FROM gcc as builder
-RUN apt -y update && apt -y upgrade && apt -y install openjdk
+RUN apt -y update && apt -y upgrade && apt -y install openjdk-17
 WORKDIR /project
 COPY src ./src
 COPY build.gradle.kts ./build.gradle.kts
