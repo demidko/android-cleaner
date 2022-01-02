@@ -27,7 +27,7 @@ jobs:
     - name: Store artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: linux-app
+        name: linux-android-cleaner
         path: build/graal/*
   build-macos-app:
     runs-on: macos-11
@@ -46,7 +46,7 @@ jobs:
     - name: Store artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: macos-app
+        name: macos-android-cleaner
         path: build/graal/*
   build-windows-app:
     runs-on: windows-2022
@@ -66,6 +66,6 @@ jobs:
     - name: Store artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: windows-app
+        name: windows-android-cleaner
         path: build/graal/*
 
