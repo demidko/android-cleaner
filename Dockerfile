@@ -8,9 +8,8 @@ COPY build.gradle.kts ./build.gradle.kts
 COPY gradlew ./gradlew
 COPY gradle ./gradle
 RUN ./gradlew clean build
-RUN ls build/graal
 
 FROM debian as backend
 WORKDIR /root
-COPY --from=builder /project/build/graal/android-cleaner ./android-cleaner
-ENTRYPOINT ["/root/android-cleaner"]
+COPY --from=builder /project/build/graal/project ./app
+ENTRYPOINT ["/root/app"]
