@@ -11,5 +11,5 @@ RUN ./gradlew clean build
 
 FROM debian as backend
 WORKDIR /root
-COPY --from=builder /project/build/graal/app ./app
-ENTRYPOINT ["/root/app"]
+COPY --from=builder /project/build/graal/android-cleaner ./android-cleaner
+ENTRYPOINT ["/root/android-cleaner"]
