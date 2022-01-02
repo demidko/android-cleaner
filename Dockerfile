@@ -7,7 +7,7 @@ COPY src ./src
 COPY build.gradle.kts ./build.gradle.kts
 COPY gradlew ./gradlew
 COPY gradle ./gradle
-RUN gradle clean build
+RUN ./gradlew clean build
 
 FROM debian as backend
 WORKDIR /root
