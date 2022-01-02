@@ -22,8 +22,9 @@ possibly useful files.
 
 ## Build
 
-You can build the utility yourself from the source code. If you are using Windows, you need to install Visual Studio and
-configure [`windowsVsVarsPath`](build.gradle.kts). Then, execute command in cloned repository:
+You can build the utility yourself from the source code. If you are using Linux or macOS you need LLVM installed. If you
+are using Windows, you need Visual Studio installed and configure [`windowsVsVarsPath`](build.gradle.kts). Then, execute
+command in cloned repository:
 
 ```shell
 ./gradlew clean build

@@ -1,11 +1,9 @@
-FROM gradle:jdk17 as toolchain
-RUN apt -y update && apt -y upgrade && apt -y install llvm
-
-FROM toolchain as builder
+FROM gcc as builder
 WORKDIR /project
 COPY src ./src
 COPY build.gradle.kts ./build.gradle.kts
-RUN gradle clean build
+COPY gradlew ./gradlew
+RUN ./gradlew clean build
 
 FROM debian as backend
 WORKDIR /root
