@@ -31,7 +31,7 @@ graal {
   mainClass("AppKt")
   outputName(projectDir.name)
   option("--no-fallback")
-  windowsVsVersion("2022")
+  windowsVsVarsPath("C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Auxiliary\\Build\\vcvars64.bat")
 }
 tasks.build {
   dependsOn(tasks.nativeImage)
