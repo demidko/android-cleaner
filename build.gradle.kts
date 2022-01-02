@@ -29,7 +29,7 @@ graal {
   graalVersion("21.3.0")
   javaVersion("17")
   mainClass("AppKt")
-  outputName("android-cleaner")
+  outputName(projectDir.name)
   option("--no-fallback")
 }
 tasks.build {

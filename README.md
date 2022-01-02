@@ -22,13 +22,8 @@ possibly useful files.
 
 ## Build
 
-You need JDK installed.
+You can build the utility yourself from the source code.
 
 ```shell
 ./gradlew clean build
 ```
-
-## Todo
-
-Configure GitHub CI to auto-publish binary releases.  
-https://docs.github.com/en/actions/advanced-guides/storing-workflow-data-as-artifacts
