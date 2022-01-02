@@ -28,6 +28,6 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: linux-android-cleaner
-        path: build/graal/*
+        path: build/graal/android-cleaner
 
 
