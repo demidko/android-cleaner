@@ -1,4 +1,7 @@
-FROM gradle:jdk17 as builder
+FROM gradle:jdk17 as toolchain
+RUN apt install gcc
+
+FROM toolchain as builder
 WORKDIR /project
 COPY src ./src
 COPY build.gradle.kts ./build.gradle.kts
