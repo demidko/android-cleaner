@@ -1,5 +1,5 @@
 FROM gradle:jdk17 as toolchain
-RUN apt install gcc
+RUN apt -yq update && apt -yq upgrade && apt -yc install gcc
 
 FROM toolchain as builder
 WORKDIR /project
