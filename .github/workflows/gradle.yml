@@ -28,7 +28,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: linux-android-cleaner
-        path: build/graal/android-cleaner
+        path: build/graal/*
   build-macos-app:
     runs-on: macos-11
     steps:
@@ -47,6 +47,25 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: macos-android-cleaner
-        path: build/graal/android-cleaner
-
+        path: build/graal/*
+  build-windows-app:
+    runs-on: macos-11
+    steps:
+    - uses: actions/checkout@v2
+    - shell: powershell
+      run: |
+        echo lol
+    - name: Set up JDK 17
+      uses: actions/setup-java@v2
+      with:
+        java-version: '17'
+        distribution: 'adopt'
+        cache: gradle
+    - name: Build with Gradle
+      run: ./gradlew build
+    - name: Store artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: windows-android-cleaner
+        path: build/graal/*
 
