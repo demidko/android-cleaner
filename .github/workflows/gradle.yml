@@ -11,9 +11,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 17
@@ -26,3 +24,11 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - name: Store artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: linux-android-cleaner
+        path: build/graal/*
+    - name: Download artifacts
+      uses: actions/download-artifact@v2
+

@@ -3,7 +3,11 @@ import se.vidstige.jadb.JadbDevice
 import se.vidstige.jadb.RemoteFile
 import java.io.File
 
-class AndroidFile private constructor(private val device: JadbDevice, private val name: String, private val path: String) {
+class AndroidFile private constructor(
+  private val device: JadbDevice,
+  private val name: String,
+  private val path: String
+) {
 
   fun delete() {
     device.execute("rm -rf", path)

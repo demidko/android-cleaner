@@ -16,15 +16,9 @@ object AndroidCleaner : CliktCommand() {
 
   }
 
-  fun backupMusic() {
+  fun findMusic() {
 
   }
 
-  fun backupPhotos() {
 
-  }
-
-  fun backupDocs() {
-
-  }
 }

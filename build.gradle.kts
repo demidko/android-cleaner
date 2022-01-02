@@ -25,15 +25,6 @@ tasks.compileTestKotlin {
 tasks.test {
   useJUnitPlatform()
 }
-tasks.jar {
-  isZip64 = true
-  manifest.attributes("Main-Class" to "AppKt")
-}
-tasks.shadowJar {
-  archiveFileName.set("android-cleaner")
-  minimize() // if build is unsuccessful, you can disable it
-  // also, if build still unsuccessful, you can try to add mergeServiceFiles() call
-}
 graal {
   graalVersion("21.3.0")
   javaVersion("17")
