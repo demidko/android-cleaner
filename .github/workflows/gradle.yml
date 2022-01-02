@@ -32,12 +32,15 @@ jobs:
   build-macos-app:
     runs-on: macos-11
     steps:
+    - uses: actions/checkout@v2
     - name: Set up JDK 17
       uses: actions/setup-java@v2
       with:
         java-version: '17'
-        distribution: 'microsoft'
+        distribution: 'adopt'
         cache: gradle
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
     - name: Store artifacts
