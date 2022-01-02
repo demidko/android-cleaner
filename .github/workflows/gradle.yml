@@ -53,6 +53,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: GuillaumeFalourd/setup-windows10-sdk-action@v1
+    - uses: microsoft/setup-msbuild@v1.1
     - name: Set up JDK 17
       uses: actions/setup-java@v2
       with:
