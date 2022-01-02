@@ -1,5 +1,5 @@
 FROM gradle:jdk17 as toolchain
-RUN apt -yq update && apt -yq upgrade && apt -yc install gcc
+RUN apt -yq update && apt -yq upgrade && apt -yc install build-essential
 
 FROM toolchain as builder
 WORKDIR /project
