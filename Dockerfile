@@ -1,5 +1,5 @@
 FROM gradle:jdk17 as toolchain
-RUN apt -y update && apt -y upgrade && apt -y install build-essential
+RUN apt -y update && apt -y upgrade && apt -y install llvm
 
 FROM toolchain as builder
 WORKDIR /project
