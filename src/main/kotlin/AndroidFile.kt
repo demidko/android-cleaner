@@ -13,13 +13,13 @@ class AndroidFile private constructor(
     device.execute("rm -rf", path)
   }
 
-  fun copyToDirectory(d: File) {
+  fun copyToDirectory(directory: File) {
     val source = RemoteFile(path)
-    val destination = File(d, name)
+    val destination = File(directory, name)
     device.pull(source, destination)
   }
 
-  fun nested(): List<AndroidFile> {
+  fun listNestedFiles(): List<AndroidFile> {
     val files = device.list(path).filter { file ->
       file.path != "." && file.path != ".."
     }
@@ -33,7 +33,7 @@ class AndroidFile private constructor(
   }
 
   companion object {
-    fun findAndroidSdcard(): AndroidFile {
+    fun getAndroidSdcard(): AndroidFile {
       val device = JadbConnection().anyDevice
       return AndroidFile(device, "sdcard", "/sdcard")
     }

